@@ -4,12 +4,13 @@
   "version": "1.0.0",
   "description": "Expose API in page context to send message into ChatGPT.",
   "host_permissions": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
+  "permissions": ["scripting"],
   "content_scripts": [
     {
       "matches": ["https://chatgpt.com/*", "https://chat.openai.com/*"],
-      "js": ["page-main.js"],
+      "js": ["src/page-main/index.js"],
       "run_at": "document_idle",
-      "world": "MAIN"
+      "world": "ISOLATED"
     }
   ]
 }
